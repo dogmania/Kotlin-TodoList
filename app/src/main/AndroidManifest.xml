@@ -13,21 +13,79 @@
         android:theme="@style/Theme.TodoList"
         tools:targetApi="31">
         <activity
-            android:name=".AddTodoActivity"
-            android:exported="false">
+            android:name=".TodayTodoActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Design.Light.NoActionBar">>
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".CalendarActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".CareOnActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".CareActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".GoalCheckActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".LookOnActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".AddTodoActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

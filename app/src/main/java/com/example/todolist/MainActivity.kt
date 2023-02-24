@@ -12,7 +12,7 @@ import com.example.todolist.db.AppDatabase
 import com.example.todolist.db.TodoDao
 import com.example.todolist.db.TodoEntity
 
-class MainActivity : AppCompatActivity(), OnItemLongClickListener {
+class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     private lateinit var db : AppDatabase
@@ -25,61 +25,75 @@ class MainActivity : AppCompatActivity(), OnItemLongClickListener {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnAdd.setOnClickListener{
-            val intent = Intent(this, AddTodoActivity::class.java)
+        binding.btnCalendar.setOnClickListener{
+            val intent = Intent(this, CalendarActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnLookOn.setOnClickListener {
+            val intent = Intent(this, LookOnActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnGoalCheck.setOnClickListener {
+            val intent = Intent(this, GoalCheckActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnCare.setOnClickListener {
+            val intent = Intent(this, CareActivity::class.java)
             startActivity(intent)
         }
 
         db = AppDatabase.getInstance(this)!!
         todoDao = db.getTodoDao()
 
-        getAllTodoList()
+//        getAllTodoList()
     }
 
-    private fun getAllTodoList() {
-        Thread{
-            todoList = ArrayList(todoDao.getAll())
-            setRecyclerView()
-        }.start()
-    }
+//    private fun getAllTodoList() {
+//        Thread{
+//            todoList = ArrayList(todoDao.getAll())
+//            setRecyclerView()
+//        }.start()
+//    }
 
-    private fun setRecyclerView() {
-        runOnUiThread {
-            adapter = TodoRecyclerViewAdapter(todoList, this)
-            binding.recyclerView.adapter = adapter
-            binding.recyclerView.layoutManager = LinearLayoutManager(this)
-        }
-    }
+//    private fun setRecyclerView() {
+//        runOnUiThread {
+//            adapter = TodoRecyclerViewAdapter(todoList, this)
+//            binding.recyclerView.adapter = adapter
+//            binding.recyclerView.layoutManager = LinearLayoutManager(this)
+//        }
+//    }
 
-    override fun onRestart() {
-        super.onRestart()
-        getAllTodoList()
-    }
+//    override fun onRestart() {
+//        super.onRestart()
+//        getAllTodoList()
+//    }
 
-
-    override fun onLongClick(position: Int) {
-        val builder: AlertDialog.Builder = AlertDialog.Builder(this)
-        builder.setTitle("할 일 삭제")
-        builder.setMessage("정말 삭제하시겠습니까?")
-        builder.setNegativeButton("취소", null)
-        builder.setPositiveButton("네",
-            object : DialogInterface.OnClickListener {
-                override fun onClick(p0: DialogInterface?, p1: Int) {
-                    deleteTodo(position)
-                }
-            }
-        )
-        builder.show()
-    }
-
-    private fun deleteTodo(position: Int) {
-        Thread{
-            todoDao.deleteTodo(todoList[position])
-            todoList.removeAt(position)
-            runOnUiThread {
-                adapter.notifyDataSetChanged()
-                Toast.makeText(this, "삭제되었습니다.", Toast.LENGTH_SHORT).show()
-            }
-        }.start()
-    }
+//    override fun onLongClick(position: Int) {
+//        val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+//        builder.setTitle("할 일 삭제")
+//        builder.setMessage("정말 삭제하시겠습니까?")
+//        builder.setNegativeButton("취소", null)
+//        builder.setPositiveButton("네",
+//            object : DialogInterface.OnClickListener {
+//                override fun onClick(p0: DialogInterface?, p1: Int) {
+//                    deleteTodo(position)
+//                }
+//            }
+//        )
+//        builder.show()
+//    }
+//
+//    private fun deleteTodo(position: Int) {
+//        Thread{
+//            todoDao.deleteTodo(todoList[position])
+//            todoList.removeAt(position)
+//            runOnUiThread {
+//                adapter.notifyDataSetChanged()
+//                Toast.makeText(this, "삭제되었습니다.", Toast.LENGTH_SHORT).show()
+//            }
+//        }.start()
+//    }
 }

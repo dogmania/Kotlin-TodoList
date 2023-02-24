@@ -30,35 +30,48 @@ class AddTodoActivity : AppCompatActivity() {
 
     private fun insertTodo() {
         val todoTitle = binding.edtTitle.text.toString()
-        var todoImportance = binding.radioGroup.checkedRadioButtonId
+//        var todoImportance = binding.radioGroup.checkedRadioButtonId
 
-        when(todoImportance) {
-            R.id.btn_high -> {
-                todoImportance = 1
-            }
+//        when(todoImportance) {
+//            R.id.btn_high -> {
+//                todoImportance = 1
+//            }
+//
+//            R.id.btn_middle -> {
+//                todoImportance = 2
+//            }
+//
+//            R.id.btn_low -> {
+//                todoImportance = 3
+//            }
+//
+//            else -> {
+//                todoImportance = -1
+//            }
+//        }
 
-            R.id.btn_middle -> {
-                todoImportance = 2
-            }
-
-            R.id.btn_low -> {
-                todoImportance = 3
-            }
-
-            else -> {
-                todoImportance = -1
-            }
-        }
-
-        if (todoImportance == -1 || todoTitle.isBlank()) {
+//        if (todoImportance == -1 || todoTitle.isBlank()) {
+//            Toast.makeText(this, "모든 항목을 채워주세요.",
+//            Toast.LENGTH_SHORT).show()
+//        } else {
+//            Thread {
+//                todoDao.insertTodo(TodoEntity(null, todoTitle, todoImportance))
+//                runOnUiThread{
+//                    Toast.makeText(this, "추가되었습니다.",
+//                    Toast.LENGTH_SHORT).show()
+//                    finish()
+//                }
+//            }.start()
+//        }
+        if (todoTitle.isBlank()) {
             Toast.makeText(this, "모든 항목을 채워주세요.",
-            Toast.LENGTH_SHORT).show()
+                Toast.LENGTH_SHORT).show()
         } else {
             Thread {
-                todoDao.insertTodo(TodoEntity(null, todoTitle, todoImportance))
+                todoDao.insertTodo(TodoEntity(null, todoTitle))
                 runOnUiThread{
                     Toast.makeText(this, "추가되었습니다.",
-                    Toast.LENGTH_SHORT).show()
+                        Toast.LENGTH_SHORT).show()
                     finish()
                 }
             }.start()

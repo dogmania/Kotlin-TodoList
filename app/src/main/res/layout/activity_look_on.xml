@@ -4,6 +4,203 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".LookOnActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.17"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.83" />
+
+    <FrameLayout
+        android:id="@+id/frame_cental"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/temp"
+        app:layout_constraintBottom_toTopOf="@id/horizontal3"
+        app:layout_constraintTop_toBottomOf="@id/horizontal2" />
+
+    <Button
+        android:id="@+id/btn_folder"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/folder_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/horizontal"/>
+
+    <Button
+        android:id="@+id/btn_question_mark"
+        android:layout_width="49dp"
+        android:layout_height="41dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/horizontal"/>
+    
+    <Button
+        android:id="@+id/btn_left"
+        android:layout_width="25dp"
+        android:layout_height="28dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/left_arrow"
+        app:layout_constraintEnd_toStartOf="@id/room"
+        app:layout_constraintBottom_toBottomOf="@id/horizontal"/>
+    
+    <TextView
+        android:id="@+id/room"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/room"
+        android:textSize="45sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/horizontal"/>
+
+    <Button
+        android:id="@+id/btn_right"
+        android:layout_width="25dp"
+        android:layout_height="28dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/right_arrow"
+        app:layout_constraintStart_toEndOf="@id/room"
+        app:layout_constraintBottom_toTopOf="@id/horizontal"/>
+
+    <FrameLayout
+        android:id="@+id/pencil_frame"
+        android:layout_width="80dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/round_layout_mint"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/check_frame"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/horizontal3" />
+
+    <FrameLayout
+        android:id="@+id/check_frame"
+        android:layout_width="80dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/round_layout_mint"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/heart_frame"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/pencil_frame"
+        app:layout_constraintTop_toTopOf="@id/horizontal3" />
+
+    <FrameLayout
+        android:id="@+id/heart_frame"
+        android:layout_width="80dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/round_layout_mint"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bag_frame"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/check_frame"
+        app:layout_constraintTop_toTopOf="@id/horizontal3" />
+
+    <FrameLayout
+        android:id="@+id/bag_frame"
+        android:layout_width="80dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/round_layout_mint"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/heart_frame"
+        app:layout_constraintTop_toTopOf="@id/horizontal3" />
+
+    <Button
+        android:id="@+id/btn_pencil"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/pencil"
+        app:layout_constraintBottom_toBottomOf="@id/pencil_frame"
+        app:layout_constraintTop_toTopOf="@id/pencil_frame"
+        app:layout_constraintStart_toStartOf="@id/pencil_frame"
+        app:layout_constraintEnd_toEndOf="@id/pencil_frame"/>
+
+    <Button
+        android:id="@+id/btn_check_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/check_icon"
+        app:layout_constraintStart_toStartOf="@id/check_frame"
+        app:layout_constraintEnd_toEndOf="@id/check_frame"
+        app:layout_constraintTop_toTopOf="@id/check_frame"
+        app:layout_constraintBottom_toBottomOf="@id/check_frame"/>
+
+    <Button
+        android:id="@+id/btn_heart"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/heart_icon"
+        app:layout_constraintStart_toStartOf="@id/heart_frame"
+        app:layout_constraintEnd_toEndOf="@id/heart_frame"
+        app:layout_constraintTop_toTopOf="@id/heart_frame"
+        app:layout_constraintBottom_toBottomOf="@id/heart_frame"/>
+
+    <Button
+        android:id="@+id/btn_bag"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/bag_icon"
+        app:layout_constraintStart_toStartOf="@id/bag_frame"
+        app:layout_constraintEnd_toEndOf="@id/bag_frame"
+        app:layout_constraintTop_toTopOf="@id/bag_frame"
+        app:layout_constraintBottom_toBottomOf="@id/bag_frame"/>
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="45dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/back_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/horizontal" />
+
+    <TextClock
+        android:id="@+id/clock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:format12Hour="hh:mm"
+        android:format24Hour="HH:mm"
+        android:textSize="50sp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/horizontal"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

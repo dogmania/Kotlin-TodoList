@@ -4,6 +4,175 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/mint"
     tools:context=".CalendarActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.67"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.82"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.99"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/v_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.6"/>
+
+    <TextView
+        android:id="@+id/goal_attainment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        android:text="@string/goal_attainment"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="1dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/round_layout"
+        app:layout_constraintTop_toBottomOf="@id/goal_attainment"
+        app:layout_constraintBottom_toBottomOf="@id/guideline"
+        app:layout_constraintStart_toStartOf="@id/goal_attainment"
+        app:layout_constraintEnd_toEndOf="@id/v_guideline"/>
+
+    <TextView
+        android:id="@+id/short_goal_achievement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/short_goal_achievement"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@id/frame"
+        app:layout_constraintStart_toStartOf="@id/frame"/>
+
+    <TextView
+        android:id="@+id/long_goal_achievement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="@string/long_goal_achievement"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/short_goal_achievement"
+        app:layout_constraintBottom_toBottomOf="@id/frame"/>
+
+    <FrameLayout
+        android:id="@+id/frame2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/round_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/v_guideline"
+        app:layout_constraintTop_toTopOf="@id/frame"
+        app:layout_constraintBottom_toBottomOf="@id/frame"/>
+
+    <TextView
+        android:id="@+id/calendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calendar"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        app:layout_constraintTop_toTopOf="@id/guideline"
+        app:layout_constraintStart_toStartOf="@id/goal_attainment"/>
+
+    <CalendarView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/calendar_view"
+        android:background="@drawable/round_layout"
+        app:layout_constraintStart_toStartOf="@id/frame"
+        app:layout_constraintEnd_toEndOf="@id/frame2"
+        app:layout_constraintTop_toBottomOf="@id/calendar"
+        app:layout_constraintBottom_toBottomOf="@id/guideline2"/>
+
+    <TextView
+        android:id="@+id/today_todo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/today_todo"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        app:layout_constraintTop_toTopOf="@id/guideline2"
+        app:layout_constraintStart_toStartOf="@id/goal_attainment"/>
+
+    <Button
+        android:id="@+id/btn_temp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:text="@string/today_todo"
+        app:layout_constraintBottom_toBottomOf="@id/today_todo"
+        app:layout_constraintStart_toEndOf="@id/today_todo"
+        app:layout_constraintTop_toTopOf="@id/today_todo" />
+
+    <FrameLayout
+        android:id="@+id/frame3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/round_layout"
+        app:layout_constraintStart_toStartOf="@id/frame"
+        app:layout_constraintEnd_toEndOf="@id/frame2"
+        app:layout_constraintTop_toBottomOf="@id/today_todo"
+        app:layout_constraintBottom_toBottomOf="@id/guideline3"/>
+
+    <TextView
+        android:id="@+id/goals_summary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/goals_summary"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        app:layout_constraintTop_toTopOf="@id/guideline3"
+        app:layout_constraintStart_toStartOf="@id/today_todo"/>
+
+    <FrameLayout
+        android:id="@+id/frame4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/round_layout"
+        app:layout_constraintStart_toStartOf="@id/frame"
+        app:layout_constraintEnd_toEndOf="@id/frame2"
+        app:layout_constraintTop_toBottomOf="@id/goals_summary"
+        app:layout_constraintBottom_toBottomOf="@id/guideline4"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

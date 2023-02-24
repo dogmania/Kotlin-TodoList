@@ -2,13 +2,34 @@
     <!--  앱의 이름.  -->
     <string name="app_name">Hyeonsu_TodoList</string>
     <!--  MainActivity에서 사용할 텍스트  -->
-    <string name="add_todo">할 일 추가하기</string>
+    <string name="add_todo">캘린더 확인하기 온 !</string>
+    <string name="goal_check">목표 달성 체크 온 !</string>
+    <string name="care">나 지쳤어 ! 케어하기 온 !</string>
+    <string name="scroll">스크롤 해서 오늘 할 일 확인하기</string>
+    <string name="look_on">온 보러가기</string>
     <!--  AddTodoActivity에서 사용할 텍스트  -->
     <string name="title">제목</string>
-    <string name="hint_title">해야 할 일을 입력해주세요</string>
+    <string name="hint_title">할 일 제목</string>
     <string name="importance">중요도</string>
     <string name="importance_low">낮음</string>
     <string name="importance_middle">중간</string>
     <string name="importance_high">높음</string>
     <string name="completion">완료</string>
+    <string name="hint_color">색상</string>
+    <string name="hint_state">상태</string>
+    <!--  GoalCheckActivity에서 사용할 텍스트  -->
+    <string name="currnet_situation">오늘 현황 온</string>
+    <string name="long_term_goal_status">장기 목표 현황 온</string>
+    <string name="long_term_goal">장기 목표 온</string>
+    <string name="short_term_goal">단기 목표 온</string>
+    <string name="fixed_todo">고정 할일 온</string>
+    <!--  CalendarActivity에서 사용할 텍스트  -->
+    <string name="goal_attainment">목표 달성도 온</string>
+    <string name="short_goal_achievement">단기 목표 달성도</string>
+    <string name="long_goal_achievement">장기 목표 달성도</string>
+    <string name="calendar">캘린더 온</string>
+    <string name="today_todo">오늘 할 일 온</string>
+    <string name="goals_summary">목표 한눈에 온</string>
+    <!--  LookOnActivity에서 사용할 텍스트  -->
+    <string name="room">room</string>
 </resources>
