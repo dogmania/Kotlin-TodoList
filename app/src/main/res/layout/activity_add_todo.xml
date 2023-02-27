@@ -38,25 +38,12 @@
         android:layout_marginEnd="20dp"
         android:imeOptions="actionDone"
         android:inputType="text"
-        android:minHeight="48dp"
         android:text="@string/hint_title"
         android:textSize="14sp"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="@id/frame"
         app:layout_constraintStart_toStartOf="@id/frame"
         app:layout_constraintTop_toBottomOf="@id/pencil_icon" />
-
-    <EditText
-        android:id="@+id/edt_color"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/hint_color"
-        android:textSize="14sp"
-        android:inputType="text"
-        android:imeOptions="actionDone"
-        app:layout_constraintStart_toStartOf="@id/edt_title"
-        app:layout_constraintEnd_toEndOf="@id/edt_title"
-        app:layout_constraintTop_toBottomOf="@id/edt_title"/>
 
     <EditText
         android:id="@+id/edt_state"
@@ -66,49 +53,17 @@
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@id/edt_title"
         app:layout_constraintEnd_toEndOf="@id/edt_title"
-        app:layout_constraintTop_toBottomOf="@id/edt_color"/>
+        app:layout_constraintTop_toBottomOf="@id/edt_title"/>
 
-<!--    <TextView-->
-<!--        android:id="@+id/importance"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/importance"-->
-<!--        android:textColor="@color/black"-->
-<!--        android:layout_marginStart="20dp"-->
-<!--        android:layout_marginTop="30dp"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/edt_title"/>-->
-
-<!--    <RadioGroup-->
-<!--        android:id="@+id/radio_group"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="20dp"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/importance">-->
-
-<!--        <RadioButton-->
-<!--            android:id="@+id/btn_low"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textColor="@color/black"-->
-<!--            android:text="@string/importance_low"/>-->
-
-<!--        <RadioButton-->
-<!--            android:id="@+id/btn_middle"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textColor="@color/black"-->
-<!--            android:text="@string/importance_middle"/>-->
-
-<!--        <RadioButton-->
-<!--            android:id="@+id/btn_high"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textColor="@color/black"-->
-<!--            android:text="@string/importance_high"/>-->
-
-<!--    </RadioGroup>-->
+    <TextView
+        android:id="@+id/state_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/state_text"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/edt_state"
+        app:layout_constraintTop_toTopOf="@id/edt_state"
+        app:layout_constraintBottom_toBottomOf="@id/edt_state"/>
 
     <Button
         android:id="@+id/btn_completion"

@@ -12,7 +12,7 @@ import com.example.todolist.db.AppDatabase
 import com.example.todolist.db.TodoDao
 import com.example.todolist.db.TodoEntity
 
-class TodayTodoActivity : AppCompatActivity(), OnItemLongClickListener {
+class TodayTodoActivity : AppCompatActivity(), OnItemLongClickListener, OnButtonClickListener {
     private lateinit var binding: ActivityTodayTodoBinding
 
     private lateinit var db : AppDatabase
@@ -45,7 +45,7 @@ class TodayTodoActivity : AppCompatActivity(), OnItemLongClickListener {
 
     private fun setRecyclerView() {
         runOnUiThread {
-            adapter = TodoRecyclerViewAdapter(todoList, this)
+            adapter = TodoRecyclerViewAdapter(todoList, this, this)
             binding.recyclerView.adapter = adapter
             binding.recyclerView.layoutManager = LinearLayoutManager(this)
         }
@@ -78,6 +78,17 @@ class TodayTodoActivity : AppCompatActivity(), OnItemLongClickListener {
             runOnUiThread {
                 adapter.notifyDataSetChanged()
                 Toast.makeText(this, "삭제되었습니다.", Toast.LENGTH_SHORT).show()
+            }
+        }.start()
+    }
+
+    override fun onButtonClick(position: Int) {
+        val todoData = todoList[position]
+        todoData.isDone = !todoData.isDone
+        Thread {
+            todoDao.updateTodo(todoData)
+            runOnUiThread {
+                adapter.notifyItemChanged(position)
             }
         }.start()
     }

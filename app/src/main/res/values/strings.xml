@@ -10,13 +10,10 @@
     <!--  AddTodoActivity에서 사용할 텍스트  -->
     <string name="title">제목</string>
     <string name="hint_title">할 일 제목</string>
-    <string name="importance">중요도</string>
-    <string name="importance_low">낮음</string>
-    <string name="importance_middle">중간</string>
-    <string name="importance_high">높음</string>
     <string name="completion">완료</string>
-    <string name="hint_color">색상</string>
     <string name="hint_state">상태</string>
+    <string name="state_text">미완료</string>
+    <string name="modify_text">수정하기</string>
     <!--  GoalCheckActivity에서 사용할 텍스트  -->
     <string name="currnet_situation">오늘 현황 온</string>
     <string name="long_term_goal_status">장기 목표 현황 온</string>
@@ -32,4 +29,10 @@
     <string name="goals_summary">목표 한눈에 온</string>
     <!--  LookOnActivity에서 사용할 텍스트  -->
     <string name="room">room</string>
+    <!--  CareOnActivity에서 사용할 텍스트  -->
+    <string name="care_on">케어하기 온</string>
+    <string name="relax">마음을 편안하게</string>
+    <string name="all">전체</string>
+    <string name="piano">피아노</string>
+    <string name="hypnosis">최면</string>
 </resources>

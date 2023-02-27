@@ -30,45 +30,14 @@ class AddTodoActivity : AppCompatActivity() {
 
     private fun insertTodo() {
         val todoTitle = binding.edtTitle.text.toString()
-//        var todoImportance = binding.radioGroup.checkedRadioButtonId
+        var isDone = false
 
-//        when(todoImportance) {
-//            R.id.btn_high -> {
-//                todoImportance = 1
-//            }
-//
-//            R.id.btn_middle -> {
-//                todoImportance = 2
-//            }
-//
-//            R.id.btn_low -> {
-//                todoImportance = 3
-//            }
-//
-//            else -> {
-//                todoImportance = -1
-//            }
-//        }
-
-//        if (todoImportance == -1 || todoTitle.isBlank()) {
-//            Toast.makeText(this, "모든 항목을 채워주세요.",
-//            Toast.LENGTH_SHORT).show()
-//        } else {
-//            Thread {
-//                todoDao.insertTodo(TodoEntity(null, todoTitle, todoImportance))
-//                runOnUiThread{
-//                    Toast.makeText(this, "추가되었습니다.",
-//                    Toast.LENGTH_SHORT).show()
-//                    finish()
-//                }
-//            }.start()
-//        }
         if (todoTitle.isBlank()) {
             Toast.makeText(this, "모든 항목을 채워주세요.",
                 Toast.LENGTH_SHORT).show()
         } else {
             Thread {
-                todoDao.insertTodo(TodoEntity(null, todoTitle))
+                todoDao.insertTodo(TodoEntity(null, todoTitle, isDone))
                 runOnUiThread{
                     Toast.makeText(this, "추가되었습니다.",
                         Toast.LENGTH_SHORT).show()
