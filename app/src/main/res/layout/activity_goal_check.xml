@@ -7,6 +7,41 @@
     android:background="@color/mint"
     tools:context=".GoalCheckActivity">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.65"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95"/>
+
     <Button
         android:id="@+id/btn_back"
         android:layout_width="40dp"
@@ -22,8 +57,9 @@
         android:layout_width="71dp"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/pencil"
+        android:src="@drawable/check_icon"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/guideline1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -33,17 +69,18 @@
         android:layout_height="wrap_content"
         android:text="@string/currnet_situation"
         android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@id/pencil"
+        app:layout_constraintTop_toTopOf="@id/guideline1"
         app:layout_constraintStart_toStartOf="@id/first_frame"/>
 
     <FrameLayout
         android:id="@+id/first_frame"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="0dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/round_layout"
-        app:layout_constraintTop_toBottomOf="@id/current_situation"/>
+        app:layout_constraintTop_toBottomOf="@id/current_situation"
+        app:layout_constraintBottom_toBottomOf="@id/guideline2"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -58,19 +95,20 @@
     <TextView
         android:id="@+id/long_term_goal_status"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="5dp"
         android:text="@string/long_term_goal_status"
         android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@id/first_frame"
+        app:layout_constraintTop_toBottomOf="@id/guideline2"
         app:layout_constraintStart_toStartOf="@id/first_frame"/>
 
     <FrameLayout
         android:id="@+id/second_frame"
         android:layout_width="0dp"
-        android:layout_height="250dp"
+        android:layout_height="0dp"
         android:background="@drawable/round_layout"
         app:layout_constraintTop_toBottomOf="@id/long_term_goal_status"
+        app:layout_constraintBottom_toBottomOf="@id/guideline3"
         app:layout_constraintStart_toStartOf="@id/first_frame"
         app:layout_constraintEnd_toEndOf="@id/first_frame"/>
 
@@ -81,17 +119,39 @@
         android:layout_marginTop="5dp"
         android:text="@string/long_term_goal"
         android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@id/second_frame"
+        app:layout_constraintTop_toBottomOf="@id/guideline3"
         app:layout_constraintStart_toStartOf="@id/first_frame"/>
+
+    <ImageButton
+        android:id="@+id/btn_add_goal"
+        android:layout_width="35dp"
+        android:layout_height="25dp"
+        android:src="@drawable/pencil"
+        android:scaleType="fitCenter"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toTopOf="@id/long_term_goal"
+        app:layout_constraintBottom_toBottomOf="@id/long_term_goal"
+        app:layout_constraintStart_toEndOf="@id/long_term_goal"/>
 
     <FrameLayout
         android:id="@+id/third_frame"
         android:layout_width="0dp"
-        android:layout_height="75dp"
+        android:layout_height="0dp"
         android:background="@drawable/round_layout"
         app:layout_constraintStart_toStartOf="@id/first_frame"
         app:layout_constraintEnd_toEndOf="@id/first_frame"
-        app:layout_constraintTop_toBottomOf="@id/long_term_goal"/>
+        app:layout_constraintTop_toBottomOf="@id/long_term_goal"
+        app:layout_constraintBottom_toBottomOf="@id/guideline4"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/long_goal_recyclerview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toTopOf="@id/third_frame"
+        app:layout_constraintBottom_toBottomOf="@id/third_frame"
+        app:layout_constraintStart_toStartOf="@id/third_frame"
+        app:layout_constraintEnd_toEndOf="@id/third_frame"/>
 
     <TextView
         android:id="@+id/short_term_goal"
@@ -100,15 +160,16 @@
         android:layout_marginTop="5dp"
         android:text="@string/short_term_goal"
         android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@id/third_frame"
+        app:layout_constraintTop_toBottomOf="@id/guideline4"
         app:layout_constraintStart_toStartOf="@id/first_frame"/>
 
     <FrameLayout
         android:id="@+id/fourth_frame"
         android:layout_width="170dp"
-        android:layout_height="75dp"
+        android:layout_height="0dp"
         android:background="@drawable/round_layout"
         app:layout_constraintTop_toBottomOf="@id/short_term_goal"
+        app:layout_constraintBottom_toBottomOf="@id/guideline5"
         app:layout_constraintStart_toStartOf="@id/first_frame"/>
 
     <TextView
@@ -121,13 +182,25 @@
         app:layout_constraintStart_toEndOf="@id/fourth_frame"
         app:layout_constraintTop_toTopOf="@id/short_term_goal"/>
 
+    <ImageButton
+        android:id="@+id/btn_add_fixed_goal"
+        android:layout_width="35dp"
+        android:layout_height="25dp"
+        android:src="@drawable/pencil"
+        android:scaleType="fitCenter"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toTopOf="@id/fixed_todo"
+        app:layout_constraintBottom_toBottomOf="@id/fixed_todo"
+        app:layout_constraintStart_toEndOf="@id/fixed_todo"/>
+
     <FrameLayout
         android:id="@+id/fifth_frame"
         android:layout_width="0dp"
-        android:layout_height="75dp"
+        android:layout_height="0dp"
         android:background="@drawable/round_layout"
         app:layout_constraintStart_toStartOf="@id/fixed_todo"
         app:layout_constraintEnd_toEndOf="@id/third_frame"
-        app:layout_constraintTop_toTopOf="@id/fourth_frame"/>
+        app:layout_constraintTop_toTopOf="@id/fourth_frame"
+        app:layout_constraintBottom_toBottomOf="@id/guideline5"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

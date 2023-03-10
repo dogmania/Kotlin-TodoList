@@ -47,5 +47,3 @@ class AddTodoActivity : AppCompatActivity() {
         }
     }
 }
-
-// 11.11.

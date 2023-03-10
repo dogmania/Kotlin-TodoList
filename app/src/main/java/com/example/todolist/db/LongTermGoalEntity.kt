@@ -4,9 +4,11 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity//어떤 구성요소인지 어노테이션을 써서 알려야한다.
-data class TodoEntity (
+@Entity
+data class LongTermGoalEntity(
     @PrimaryKey(autoGenerate = true) var id : Int? = null,
     @ColumnInfo(name = "title") var title : String,
-    @ColumnInfo(name = "isDone") var isDone : Boolean
-    )
+    @ColumnInfo(name = "emoticon") var emoticon : String,
+    @ColumnInfo(name = "period") var period : Int,
+    @ColumnInfo(name = "measure") var measure : Int
+)

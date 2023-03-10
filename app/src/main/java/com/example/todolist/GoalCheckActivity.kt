@@ -3,19 +3,23 @@ package com.example.todolist
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todolist.databinding.ActivityGoalCheckBinding
-import com.example.todolist.db.AppDatabase
-import com.example.todolist.db.TodoDao
-import com.example.todolist.db.TodoEntity
+import com.example.todolist.db.*
 
-class GoalCheckActivity : AppCompatActivity(), OnItemLongClickListener, OnButtonClickListener {
+class GoalCheckActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGoalCheckBinding
-
+    //아래의 변수는 오늘 할 일에 대한 변수들
     private lateinit var db : AppDatabase
     private lateinit var todoDao : TodoDao
     private lateinit var todoList : ArrayList<TodoEntity>
-    private lateinit var adapter : TodoRecyclerViewAdapter
+    private lateinit var adapter : ListRecyclerViewAdapter
+    //아래의 변수는 장기목표에 대한 변수들
+    private lateinit var lTodoList: ArrayList<LongTermGoalEntity>
+    private lateinit var lDb : AppDatabase
+    private lateinit var lTodoDao : LongTermGoalDao
+    private lateinit var lAdapter : LTodoRecyclerViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,10 +31,19 @@ class GoalCheckActivity : AppCompatActivity(), OnItemLongClickListener, OnButton
             startActivity(intent)
         }
 
+        binding.btnAddGoal.setOnClickListener{
+            val intent = Intent(this, CurrentLongTermGoal::class.java)
+            startActivity(intent)
+        }
+
         db = AppDatabase.getInstance(this)!!
         todoDao = db.getTodoDao()
 
+        lDb = AppDatabase.getInstance(this)!!
+        lTodoDao = lDb.getLongTermGoal()
+
         getAllTodoList()
+        getAllLongTodoList()
     }
 
     private fun getAllTodoList() {
@@ -40,22 +53,32 @@ class GoalCheckActivity : AppCompatActivity(), OnItemLongClickListener, OnButton
         }.start()
     }
 
+    private fun getAllLongTodoList() {
+        Thread{
+            lTodoList = ArrayList(lTodoDao.getAll())
+            setLongRecyclerView()
+        }.start()
+    }
+
     private fun setRecyclerView() {
         runOnUiThread {
-            adapter = TodoRecyclerViewAdapter(todoList, this, this)
+            adapter = ListRecyclerViewAdapter(todoList)
             binding.recyclerView.adapter = adapter
             binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        }
+    }
+
+    private fun setLongRecyclerView() {
+        runOnUiThread {
+            lAdapter = LTodoRecyclerViewAdapter(lTodoList)
+            binding.longGoalRecyclerview.adapter = lAdapter
+            binding.longGoalRecyclerview.layoutManager = LinearLayoutManager(this)
         }
     }
 
     override fun onRestart() {
         super.onRestart()
         getAllTodoList()
-    }
-
-    override fun onLongClick(position : Int) {
-    }
-
-    override fun onButtonClick(position: Int) {
+        getAllLongTodoList()
     }
 }

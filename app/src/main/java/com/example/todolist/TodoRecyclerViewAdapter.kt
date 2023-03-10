@@ -2,17 +2,14 @@ package com.example.todolist
 
 import android.graphics.Paint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.todolist.databinding.ActivityGoalCheckBinding
 import com.example.todolist.databinding.ItemTodoBinding
 import com.example.todolist.db.TodoEntity
 
 class TodoRecyclerViewAdapter(private val todoList : ArrayList<TodoEntity>,
-                              private val listener : OnItemLongClickListener, private val buttonListener: OnButtonClickListener) : RecyclerView.Adapter<TodoRecyclerViewAdapter.MyViewHolder>() {
-
-    private lateinit var temp : ActivityGoalCheckBinding
+                              private val listener : OnItemLongClickListener, private val buttonListener: OnButtonClickListener)
+    : RecyclerView.Adapter<TodoRecyclerViewAdapter.MyViewHolder>() {
 
     inner class MyViewHolder(binding : ItemTodoBinding) : RecyclerView.ViewHolder(binding.root) {
             //목록의 개별 항목 레이아웃을 포함하는 view 래퍼로, 각 목록 레이아웃에 필요한 기능들을 구현하는 공간. item 레이아웃에 버튼이 있다면 리스너를 여기서 구현한다.

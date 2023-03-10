@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.todolist.databinding.ActivityCareBinding
-import com.example.todolist.databinding.ActivityGoalCheckBinding
 
 class CareActivity : AppCompatActivity() {
     lateinit var binding: ActivityCareBinding
@@ -20,7 +19,7 @@ class CareActivity : AppCompatActivity() {
         }
 
         binding.btnDown.setOnClickListener {
-            val intent = Intent(this, CareOnActivity::class.java)
+            val intent = Intent(this, CareOnActivityVideo::class.java)
             startActivity(intent)
 
             overridePendingTransition(R.anim.slide_up_enter, R.anim.slide_up_exit)

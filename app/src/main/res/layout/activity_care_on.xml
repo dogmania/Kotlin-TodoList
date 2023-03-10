@@ -5,60 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/beige"
-    tools:context=".CareOnActivity">
+    tools:context=".CareOnActivityVideo">
 
     <ImageView
-        android:id="@+id/heart_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/heart_icon"
-        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/top_image"
+        android:layout_width="120dp"
+        android:layout_height="139dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/care_on_top_image"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_back"
         android:layout_width="38dp"
         android:layout_height="29dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="10dp"
         android:background="@drawable/back_icon2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/heart_icon"/>
+        app:layout_constraintTop_toTopOf="@id/top_image"/>
 
-    <FrameLayout
-        android:id="@+id/frame"
-        android:layout_width="145dp"
-        android:layout_height="15dp"
-        android:layout_marginTop="30dp"
-        android:background="@color/mint"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/heart_icon"/>
-    
-    <TextView
-        android:id="@+id/care_on"
-        android:layout_width="0dp"
-        android:layout_height="35dp"
-        android:layout_marginBottom="5dp"
-        android:text="@string/care_on"
-        android:textSize="25sp"
-        android:textColor="@color/black"
-        android:gravity="center"
-        app:layout_constraintStart_toStartOf="@id/frame"
-        app:layout_constraintEnd_toEndOf="@id/frame"
-        app:layout_constraintBottom_toBottomOf="@id/frame"/>
-    
-    <TextView
-        android:id="@+id/relax"
-        android:layout_width="100dp"
-        android:layout_height="17dp"
-        android:text="@string/relax"
-        android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@id/frame"
-        app:layout_constraintStart_toStartOf="@id/frame"
-        app:layout_constraintEnd_toEndOf="@id/frame"/>
-    
     <Button
         android:id="@+id/btn_all"
         android:layout_width="60dp"
@@ -67,7 +34,7 @@
         android:layout_marginStart="20dp"
         android:background="@drawable/btn_style_white"
         android:text="@string/all"
-        app:layout_constraintTop_toBottomOf="@id/relax"
+        app:layout_constraintTop_toBottomOf="@id/top_image"
         app:layout_constraintStart_toStartOf="parent"/>
 
     <Button
@@ -90,19 +57,14 @@
         app:layout_constraintTop_toTopOf="@id/btn_all"
         app:layout_constraintStart_toEndOf="@id/btn_piano"/>
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/scroll_view"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="15dp"
-        app:layout_constraintStart_toStartOf="@id/btn_all"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="10dp"
         app:layout_constraintTop_toBottomOf="@id/btn_all"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-
-    </androidx.core.widget.NestedScrollView>
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

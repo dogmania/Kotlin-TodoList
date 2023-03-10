@@ -48,52 +48,5 @@ class MainActivity : AppCompatActivity() {
         db = AppDatabase.getInstance(this)!!
         todoDao = db.getTodoDao()
 
-//        getAllTodoList()
     }
-
-//    private fun getAllTodoList() {
-//        Thread{
-//            todoList = ArrayList(todoDao.getAll())
-//            setRecyclerView()
-//        }.start()
-//    }
-
-//    private fun setRecyclerView() {
-//        runOnUiThread {
-//            adapter = TodoRecyclerViewAdapter(todoList, this)
-//            binding.recyclerView.adapter = adapter
-//            binding.recyclerView.layoutManager = LinearLayoutManager(this)
-//        }
-//    }
-
-//    override fun onRestart() {
-//        super.onRestart()
-//        getAllTodoList()
-//    }
-
-//    override fun onLongClick(position: Int) {
-//        val builder: AlertDialog.Builder = AlertDialog.Builder(this)
-//        builder.setTitle("할 일 삭제")
-//        builder.setMessage("정말 삭제하시겠습니까?")
-//        builder.setNegativeButton("취소", null)
-//        builder.setPositiveButton("네",
-//            object : DialogInterface.OnClickListener {
-//                override fun onClick(p0: DialogInterface?, p1: Int) {
-//                    deleteTodo(position)
-//                }
-//            }
-//        )
-//        builder.show()
-//    }
-//
-//    private fun deleteTodo(position: Int) {
-//        Thread{
-//            todoDao.deleteTodo(todoList[position])
-//            todoList.removeAt(position)
-//            runOnUiThread {
-//                adapter.notifyDataSetChanged()
-//                Toast.makeText(this, "삭제되었습니다.", Toast.LENGTH_SHORT).show()
-//            }
-//        }.start()
-//    }
 }

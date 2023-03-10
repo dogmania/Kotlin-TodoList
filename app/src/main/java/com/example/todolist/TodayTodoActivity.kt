@@ -92,4 +92,5 @@ class TodayTodoActivity : AppCompatActivity(), OnItemLongClickListener, OnButton
             }
         }.start()
     }
+
 }
