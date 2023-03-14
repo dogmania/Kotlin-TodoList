@@ -9,6 +9,7 @@ import com.example.todolist.databinding.ActivityAddLongTermGoalBinding
 import com.example.todolist.db.AppDatabase
 import com.example.todolist.db.LongTermGoalDao
 import com.example.todolist.db.LongTermGoalEntity
+import java.util.*
 
 class AddLongTermGoalActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddLongTermGoalBinding
@@ -18,8 +19,15 @@ class AddLongTermGoalActivity : AppCompatActivity() {
     private lateinit var periodSpinner : Spinner
     private lateinit var measureSpinner : Spinner
 
-    private var period : Int = 0
+    private var period = 0
     private var measure : Int = 0
+
+    val today = Calendar.getInstance()
+    val year = today.get(Calendar.YEAR).toString()
+    val month = (today.get(Calendar.MONTH) + 1).toString()
+    val day = today.get(Calendar.DAY_OF_MONTH).toString()
+    val formattedStartDate = "$year.$month.$day"
+    val formattedEndDate = formattedStartDate
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,14 +59,21 @@ class AddLongTermGoalActivity : AppCompatActivity() {
         periodSpinner.adapter = periodAdapter
         measureSpinner.adapter = measureAdapter
 
+        periodSpinner.prompt = getString(R.string.spinner_title)
+        measureSpinner.prompt = getString(R.string.spinner_title)
+
+        binding.startDateView.text = formattedStartDate
+        binding.endDateView.text = formattedEndDate
+
         binding.btnComplete.setOnClickListener {
             insertGoal()
         }
+
     }
 
     private fun insertGoal() {
-        val goalTitle = binding.edtTitle.text.toString()
-        val emoticon = binding.emoticon.text.toString()
+        val goalTitle = binding.edtTodo.text.toString()
+        val emoticon = binding.edtEmoticon.text.toString()
 
         periodSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -71,7 +86,9 @@ class AddLongTermGoalActivity : AppCompatActivity() {
                 id: Long
             ) {
                 when (position) {
-                    0 -> period = 1
+                    0 -> {
+                        period = 1
+                    }
                     1 -> period = 2
                     2 -> period = 3
                     3 -> period = 4
@@ -83,7 +100,6 @@ class AddLongTermGoalActivity : AppCompatActivity() {
 
         measureSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
-
             }
 
             override fun onItemSelected(
