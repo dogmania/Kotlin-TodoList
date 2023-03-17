@@ -3,7 +3,6 @@ package com.example.todolist
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.view.ViewGroup
 import android.widget.*
 import com.example.todolist.databinding.ActivityAddLongTermGoalBinding
 import com.example.todolist.db.AppDatabase

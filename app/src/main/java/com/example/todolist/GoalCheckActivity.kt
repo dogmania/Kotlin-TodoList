@@ -36,6 +36,11 @@ class GoalCheckActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.btnAddFixedGoal.setOnClickListener {
+            val intent = Intent(this, ModifyTodayTodoActivity::class.java)
+            startActivity(intent)
+        }
+
         db = AppDatabase.getInstance(this)!!
         todoDao = db.getTodoDao()
 

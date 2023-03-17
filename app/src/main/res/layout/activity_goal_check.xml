@@ -112,6 +112,18 @@
         app:layout_constraintStart_toStartOf="@id/first_frame"
         app:layout_constraintEnd_toEndOf="@id/first_frame"/>
 
+    <ImageView
+        android:id="@+id/temp_background_graph"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginVertical="5dp"
+        android:layout_marginHorizontal="10dp"
+        android:src="@drawable/temp_background_graph"
+        app:layout_constraintStart_toStartOf="@id/second_frame"
+        app:layout_constraintEnd_toEndOf="@id/second_frame"
+        app:layout_constraintTop_toTopOf="@id/second_frame"
+        app:layout_constraintBottom_toBottomOf="@id/second_frame"/>
+
     <TextView
         android:id="@+id/long_term_goal"
         android:layout_width="wrap_content"
