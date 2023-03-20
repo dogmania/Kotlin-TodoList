@@ -39,6 +39,7 @@
         android:id="@+id/modify_title_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_marginHorizontal="10dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="@id/frame"
@@ -58,13 +59,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="@string/modify_text"
+            android:hint="@string/hint"
             android:inputType="text"
             android:textSize="14sp"
-            android:textColor="@color/gray"
             android:gravity="right"
             android:background="@android:color/transparent"/>
 
     </LinearLayout>
+
+    <View
+        android:id="@+id/horizontal_line2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/gray"
+        app:layout_constraintStart_toStartOf="@id/horizontal_line"
+        app:layout_constraintEnd_toEndOf="@id/horizontal_line"
+        app:layout_constraintTop_toBottomOf="@id/modify_title_layout"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
