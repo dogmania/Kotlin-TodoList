@@ -50,6 +50,7 @@
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:text="@string/temp"
             android:textColor="@color/black"
             android:textSize="14sp"/>
@@ -76,5 +77,47 @@
         app:layout_constraintStart_toStartOf="@id/horizontal_line"
         app:layout_constraintEnd_toEndOf="@id/horizontal_line"
         app:layout_constraintTop_toBottomOf="@id/modify_title_layout"/>
+
+    <LinearLayout
+        android:id="@+id/state_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@id/modify_title_layout"
+        app:layout_constraintEnd_toEndOf="@id/modify_title_layout"
+        app:layout_constraintTop_toBottomOf="@id/horizontal_line2">
+
+        <TextView
+            android:id="@+id/state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/state"
+            android:textColor="@color/black"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/state_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="5dp"
+            android:text="@string/state_text"
+            android:textColor="@color/gray"
+            android:textSize="14sp"
+            android:gravity="right"/>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/horizontal_line3"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/gray"
+        app:layout_constraintStart_toStartOf="@id/horizontal_line"
+        app:layout_constraintEnd_toEndOf="@id/horizontal_line"
+        app:layout_constraintTop_toBottomOf="@id/state_layout"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

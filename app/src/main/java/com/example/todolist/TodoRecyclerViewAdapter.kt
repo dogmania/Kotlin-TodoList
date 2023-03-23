@@ -1,5 +1,6 @@
 package com.example.todolist
 
+import android.content.Context
 import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,8 +9,10 @@ import com.example.todolist.databinding.ItemTodoBinding
 import com.example.todolist.db.TodoEntity
 
 class TodoRecyclerViewAdapter(private val todoList : ArrayList<TodoEntity>,
-                              private val listener : OnItemLongClickListener, private val buttonListener: OnButtonClickListener)
+                              private val listener : OnItemLongClickListener, private val buttonListener: OnButtonClickListener, private val context : Context)
     : RecyclerView.Adapter<TodoRecyclerViewAdapter.MyViewHolder>() {
+
+    var selectedItem : TodoEntity? = null
 
     inner class MyViewHolder(binding : ItemTodoBinding) : RecyclerView.ViewHolder(binding.root) {
             //목록의 개별 항목 레이아웃을 포함하는 view 래퍼로, 각 목록 레이아웃에 필요한 기능들을 구현하는 공간. item 레이아웃에 버튼이 있다면 리스너를 여기서 구현한다.
@@ -51,6 +54,12 @@ class TodoRecyclerViewAdapter(private val todoList : ArrayList<TodoEntity>,
         holder.root.setOnLongClickListener {
             listener.onLongClick(position)
             false
+        }
+
+        holder.itemView.setOnClickListener {
+            selectedItem = todoData
+
+            val editLayout = LayoutInflater.from(context).inflate(R.layout.activity_modify_today_todo, null)
         }
     }
 

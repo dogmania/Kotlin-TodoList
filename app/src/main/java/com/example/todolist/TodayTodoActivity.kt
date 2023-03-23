@@ -45,7 +45,7 @@ class TodayTodoActivity : AppCompatActivity(), OnItemLongClickListener, OnButton
 
     private fun setRecyclerView() {
         runOnUiThread {
-            adapter = TodoRecyclerViewAdapter(todoList, this, this)
+            adapter = TodoRecyclerViewAdapter(todoList, this, this, this)
             binding.recyclerView.adapter = adapter
             binding.recyclerView.layoutManager = LinearLayoutManager(this)
         }
@@ -92,5 +92,4 @@ class TodayTodoActivity : AppCompatActivity(), OnItemLongClickListener, OnButton
             }
         }.start()
     }
-
 }
